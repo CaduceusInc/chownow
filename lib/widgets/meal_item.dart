@@ -9,7 +9,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  final Function removeItem;
+  
 
   MealItem({
     @required this.id,
@@ -18,7 +18,6 @@ class MealItem extends StatelessWidget {
     @required this.imageUrl,
     @required this.complexity,
     @required this.affordability,
-    @required this.removeItem,
   });
 
   String get complexityText {
@@ -64,7 +63,7 @@ class MealItem extends StatelessWidget {
       // from the screen and not when the "pushNamed" function
       // completes it's execution of displaying MealDetailScreen
     if (result != null) {
-      removeItem(result);
+      //removeItem(result);
     }
     
     });
