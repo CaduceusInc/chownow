@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../screens/settings_screen.dart';
+
 class MainDrawer extends StatelessWidget {
-  Widget buildListTile(String title, IconData icon) {
+  
+  Widget buildListTile(String title, IconData icon, Function drawerActions) {
     return ListTile(
       leading: Icon(
         icon,
@@ -15,7 +18,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {},
+      onTap: drawerActions,
     );
   }
 
@@ -31,7 +34,7 @@ class MainDrawer extends StatelessWidget {
           //color: Theme.of(context).accentColor,
           decoration: BoxDecoration(
             color: Theme.of(context).accentColor,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(20),
             backgroundBlendMode: BlendMode.lighten,
           ),
           child: Text(
@@ -49,13 +52,22 @@ class MainDrawer extends StatelessWidget {
         buildListTile(
           'Meals',
           Icons.restaurant,
+           () {
+            
+            Navigator.of(context).pushReplacementNamed("/");
+          },
         ),
         SizedBox(
           height: 20,
         ),
         buildListTile(
-          'Settins',
+          'Settings',
           Icons.settings_applications,
+          () {
+            Navigator.of(context).pushNamed(
+              SettingsScreen.routeName,
+            );
+          },
         ),
       ]),
     );

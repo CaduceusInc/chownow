@@ -42,7 +42,7 @@ class MealDetailScreen extends StatelessWidget {
         title: Text("${selectedMeal.title}"),
       ),
       body: SingleChildScrollView(
-              child: Column(
+        child: Column(
           children: [
             Container(
               height: 500,
@@ -86,7 +86,7 @@ class MealDetailScreen extends StatelessWidget {
                       selectedMeal.steps[index],
                     ),
                   ),
-                  Divider(),                  
+                  Divider(),
                 ],
               ),
               itemCount: selectedMeal.steps.length,
@@ -94,6 +94,10 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.delete), onPressed: () {
+            Navigator.of(context).pop(mealId);
+          }),
     );
   }
 }
